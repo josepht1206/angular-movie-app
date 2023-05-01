@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let movie of movies">
+    <h3>{{ movie.Title }}</h3>
+    <p>Year: {{ movie.Year }}</p>
+    <p>Type: {{ movie.Type }}</p>
+    <p>IMDB ID: {{ movie.imdbID }}</p>
+    <button (click)="addFavoriteMovie(movie)">Add to Favorites</button>
+  </li>
+</ul>

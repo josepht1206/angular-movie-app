@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let movie of favoriteMovies">
+    <h3>{{ movie.title }}</h3>
+    <p>{{ movie.description }}</p>
+    <button (click)="deleteFavoriteMovie(movie)">Delete</button>
+    <button (click)="editFavoriteMovie(movie)">Edit</button>
+  </li>
+</ul>

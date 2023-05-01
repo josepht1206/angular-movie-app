@@ -1,0 +1,19 @@
+<div>
+  <label for="searchTerm">Search:</label>
+  <input type="text" name="searchTerm" [(ngModel)]="searchTerm" />
+
+  <label for="year">Year:</label>
+  <input type="text" name="year" [(ngModel)]="searchYear" />
+
+  <label for="type">Type:</label>
+  <select name="type" [(ngModel)]="searchType">
+    <option value="">All</option>
+    <option value="movie">Movie</option>
+    <option value="series">Series</option>
+    <option value="episode">Episode</option>
+  </select>
+
+  <button (click)="search()">Search</button>
+</div>
+
+<app-movie-list *ngIf="searchMovies" [movies]="searchMovies"></app-movie-list>

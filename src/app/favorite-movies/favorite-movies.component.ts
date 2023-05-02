@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FavoriteMoviesService } from '../services/favorite/favorite.service';
-import { NxTabChangeEvent } from '@aposin/ng-aquila/tabs';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-favorite-movies',
@@ -9,19 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./favorite-movies.component.css'],
 })
 export class FavoriteMoviesComponent implements OnInit {
-  currentIndex = 1;
   favoriteMovies: any[] = [];
 
-  constructor(
-    private favoriteMoviesService: FavoriteMoviesService,
-    private router: Router
-  ) {}
+  constructor(private favoriteMoviesService: FavoriteMoviesService) {}
 
   ngOnInit() {
     this.favoriteMovies = this.favoriteMoviesService.getFavoriteMovies();
-  }
-
-  onTabClick(event: NxTabChangeEvent) {
-    this.router.navigate(['/']);
   }
 }

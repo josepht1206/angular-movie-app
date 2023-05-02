@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OmdbService } from '../services/omdb/omdb.service';
-import { NxTabChangeEvent } from '@aposin/ng-aquila/tabs';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -10,17 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./search-bar.component.css'],
 })
 export class SearchBarComponent implements OnInit {
-  currentIndex = 0;
   searchTerm = '';
   searchYear = '';
   searchType = '';
   searchMovies: any[] = [];
 
-  constructor(
-    private omdbService: OmdbService,
-    private http: HttpClient,
-    private router: Router
-  ) {}
+  constructor(private omdbService: OmdbService, private http: HttpClient) {}
 
   ngOnInit() {}
 
@@ -44,9 +37,5 @@ export class SearchBarComponent implements OnInit {
       .subscribe((response: any) => {
         this.searchMovies = response.Search;
       });
-  }
-
-  onTabClick(event: NxTabChangeEvent) {
-    this.router.navigate(['/favorites']);
   }
 }

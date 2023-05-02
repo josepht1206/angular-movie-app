@@ -19,6 +19,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { FavoriteMoviesComponent } from './favorite-movies/favorite-movies.component';
 import { RouterModule, Routes } from '@angular/router';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 const appRoutes: Routes = [
   { path: '', component: SearchBarComponent },
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
     SearchBarComponent,
     MovieListComponent,
     FavoriteMoviesComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,

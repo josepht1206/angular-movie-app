@@ -25,10 +25,12 @@ export class MovieListComponent implements OnInit {
 
   deleteFavoriteMovie(movie: any) {
     this.favoriteMoviesService.deleteFavoriteMovie(movie);
+    console.log('deleted movie ', movie);
     // this.favoriteMovies = this.favoriteMoviesService.getFavoriteMovies();
   }
 
   editFavoriteMovie(movie: any) {
+    console.log('editing movie', movie);
     let description = prompt(
       'Enter a new description for this movie:',
       movie.description

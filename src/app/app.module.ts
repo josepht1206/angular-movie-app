@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -13,6 +14,8 @@ import { NxPageSearchModule } from '@aposin/ng-aquila/page-search';
 import { NxFormfieldModule } from '@aposin/ng-aquila/formfield';
 import { NxIconModule } from '@aposin/ng-aquila/icon';
 import { NxTabsModule } from '@aposin/ng-aquila/tabs';
+import { NxOverlayModule } from '@aposin/ng-aquila/overlay';
+import { NxModalModule } from '@aposin/ng-aquila/modal';
 
 import { AppComponent } from './app.component';
 import { SearchMoviesComponent } from './pages/search-movies/search-movies.component';
@@ -36,6 +39,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
@@ -48,6 +52,8 @@ const appRoutes: Routes = [
     NxFormfieldModule,
     NxIconModule,
     NxTabsModule,
+    NxOverlayModule,
+    NxModalModule.forRoot(),
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent],

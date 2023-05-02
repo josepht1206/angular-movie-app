@@ -17,29 +17,108 @@
       {{ movie.Description }}
     </p>
     <img [src]="movie.Poster" class="image" />
-    <button
+
+    <!-- <button
       *ngIf="currentIndex === 0"
       nxButton="primary small"
       (click)="addFavoriteMovie(movie)"
       style="margin-top: 5px"
     >
       Add to Favorites
-    </button>
-    <button
-      *ngIf="currentIndex === 1"
-      nxButton="primary small"
-      (click)="deleteFavoriteMovie(movie)"
-      style="margin-top: 5px; margin-right: 5px"
-    >
-      Delete
-    </button>
-    <button
+    </button> -->
+
+    <div *ngIf="currentIndex === 0">
+      <button
+        (click)="openFromTemplate()"
+        nxButton="primary small"
+        type="button"
+      >
+        Add to Favorites
+      </button>
+      <ng-template #template>
+        <div class="u-text-center">
+          <h3 nxHeadline="subsection-medium" class="nx-modal-margin-bottom">
+            Enter a description for the movie.
+          </h3>
+
+          <nx-formfield nxLabel="Movie Description">
+            <input nxInput [(ngModel)]="addDescription" />
+          </nx-formfield>
+          <div>
+            <button
+              nxButton="primary small"
+              type="button"
+              style="margin-right: 5px"
+              (click)="addFavoriteMovie(movie, addDescription)"
+            >
+              save
+            </button>
+            <button
+              nxButton="primary small"
+              type="button"
+              style="margin-left: 5px"
+              (click)="closeTemplateDialog()"
+            >
+              cancel
+            </button>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+
+    <!-- <button
       *ngIf="currentIndex === 1"
       nxButton="primary small"
       (click)="editFavoriteMovie(movie)"
       style="margin-top: 5px; margin-left: 5px"
     >
       Edit
-    </button>
+    </button> -->
+
+    <div *ngIf="currentIndex === 1">
+      <button
+        nxButton="primary small"
+        (click)="deleteFavoriteMovie(movie)"
+        style="margin-right: 5px"
+      >
+        Delete
+      </button>
+      <button
+        (click)="openFromTemplate()"
+        nxButton="primary small"
+        type="button"
+      >
+        Edit
+      </button>
+      <ng-template #template>
+        <div class="u-text-center">
+          <h3 nxHeadline="subsection-medium" class="nx-modal-margin-bottom">
+            Enter a description for the movie.
+          </h3>
+
+          <nx-formfield nxLabel="Movie Description">
+            <input nxInput [(ngModel)]="editDescription" />
+          </nx-formfield>
+          <div>
+            <button
+              nxButton="primary small"
+              type="button"
+              style="margin-right: 5px"
+              (click)="editFavoriteMovie(movie, editDescription)"
+            >
+              save
+            </button>
+            <button
+              nxButton="primary small"
+              type="button"
+              style="margin-left: 5px"
+              (click)="closeTemplateDialog()"
+            >
+              cancel
+            </button>
+          </div>
+        </div>
+      </ng-template>
+    </div>
   </nx-card>
 </div>

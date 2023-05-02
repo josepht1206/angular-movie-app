@@ -1,5 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
 import { FavoriteMoviesService } from '../../services/favorite/favorite.service';
+import { NxDialogService, NxModalRef } from '@aposin/ng-aquila/modal';
+import { Directionality } from '@angular/cdk/bidi';
 
 @Component({
   selector: 'app-movie-list',
@@ -7,20 +15,39 @@ import { FavoriteMoviesService } from '../../services/favorite/favorite.service'
   styleUrls: ['./movie-list.component.css'],
 })
 export class MovieListComponent implements OnInit {
+  @Input() addDescription: string = '';
+  @Input() editDescription: string = '';
   @Input() movies: any[] = [];
   @Input() currentIndex: any;
 
-  constructor(private favoriteMoviesService: FavoriteMoviesService) {}
+  @ViewChild('template') templateRef!: TemplateRef<any>;
+
+  templateDialogRef?: NxModalRef<any>;
+
+  constructor(
+    private favoriteMoviesService: FavoriteMoviesService,
+    private readonly dialogService: NxDialogService,
+    private readonly dir: Directionality
+  ) {}
 
   ngOnInit() {
     console.log('currentIndex', this.currentIndex);
   }
 
-  addFavoriteMovie(movie: any) {
-    let description = prompt('Enter a description for this movie:');
-    if (description) {
-      this.favoriteMoviesService.addFavoriteMovie(movie, description);
-    }
+  openFromTemplate(): void {
+    this.templateDialogRef = this.dialogService.open(this.templateRef, {
+      ariaLabel: 'Dialog with direction',
+      direction: this.dir.value,
+    });
+  }
+  closeTemplateDialog() {
+    this.templateDialogRef?.close();
+  }
+
+  addFavoriteMovie(movie: any, addDescription: string) {
+    this.favoriteMoviesService.addFavoriteMovie(movie, addDescription);
+
+    this.closeTemplateDialog();
   }
 
   deleteFavoriteMovie(movie: any) {
@@ -29,14 +56,9 @@ export class MovieListComponent implements OnInit {
     // this.favoriteMovies = this.favoriteMoviesService.getFavoriteMovies();
   }
 
-  editFavoriteMovie(movie: any) {
-    console.log('editing movie', movie);
-    let description = prompt(
-      'Enter a new description for this movie:',
-      movie.description
-    );
-    if (description) {
-      movie.Description = description;
-    }
+  editFavoriteMovie(movie: any, editDescription: string) {
+    movie.Description = editDescription;
+    this.closeTemplateDialog();
+    console.log('edited movie', movie);
   }
 }

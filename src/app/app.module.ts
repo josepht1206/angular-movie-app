@@ -15,21 +15,21 @@ import { NxIconModule } from '@aposin/ng-aquila/icon';
 import { NxTabsModule } from '@aposin/ng-aquila/tabs';
 
 import { AppComponent } from './app.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
+import { SearchMoviesComponent } from './pages/search-movies/search-movies.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
-import { FavoriteMoviesComponent } from './favorite-movies/favorite-movies.component';
-import { RouterModule, Routes } from '@angular/router';
+import { FavoriteMoviesComponent } from './pages/favorite-movies/favorite-movies.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: '', component: SearchBarComponent },
+  { path: '', component: SearchMoviesComponent },
   { path: 'favorites', component: FavoriteMoviesComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchBarComponent,
+    SearchMoviesComponent,
     MovieListComponent,
     FavoriteMoviesComponent,
     NavBarComponent,

@@ -6,7 +6,7 @@
       <nx-formfield>
         <input nxInput placeholder="Search Movies" [(ngModel)]="searchTerm" />
 
-        <span *ngIf="searchTerm" aria-hidden="true" (click)="searchTerm = ''">
+        <span *ngIf="searchTerm" aria-hidden="false" (click)="searchTerm = ''">
           <nx-icon name="close" size="s"></nx-icon>
         </span>
       </nx-formfield>
@@ -17,7 +17,7 @@
     <nx-formfield nxLabel="Movies Year" style="margin-top: 10px">
       <input nxInput placeholder="Movies Year" [(ngModel)]="searchYear" />
 
-      <span *ngIf="searchYear" aria-hidden="true" (click)="searchYear = ''">
+      <span *ngIf="searchYear" aria-hidden="false" (click)="searchYear = ''">
         <nx-icon name="close" size="s"></nx-icon>
       </span>
     </nx-formfield>

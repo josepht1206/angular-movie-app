@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { OmdbService } from '../services/omdb/omdb.service';
+import { OmdbService } from 'src/app/services/omdb/omdb.service';
 
 @Component({
-  selector: 'app-search-bar',
-  templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.css'],
+  selector: 'search-movies',
+  templateUrl: './search-movies.component.html',
+  styleUrls: ['./search-movies.component.css'],
 })
-export class SearchBarComponent implements OnInit {
+export class SearchMoviesComponent implements OnInit {
   searchTerm = '';
   searchYear = '';
   searchType = '';

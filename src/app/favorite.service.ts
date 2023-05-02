@@ -15,14 +15,20 @@ export class FavoriteMoviesService {
 
   addFavoriteMovie(movie: any, description: string) {
     let newMovie = {
-      title: movie.Title,
-      description: description,
+      Poster: movie.Poster,
+      Title: movie.Title,
+      Type: movie.Type,
+      Year: movie.Year,
+      imdbID: movie.imdbID,
+      Description: movie.Description,
     };
+    console.log('added movie', newMovie);
     this.favoriteMovies.push(newMovie);
     localStorage.setItem('favoriteMovies', JSON.stringify(this.favoriteMovies));
   }
 
   getFavoriteMovies() {
+    console.log('favorited movies : ', this.favoriteMovies);
     return this.favoriteMovies;
   }
 

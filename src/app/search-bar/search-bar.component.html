@@ -1,19 +1,49 @@
-<div>
-  <label for="searchTerm">Search:</label>
-  <input type="text" name="searchTerm" [(ngModel)]="searchTerm" />
+<nx-tab-group
+  [(selectedIndex)]="currentIndex"
+  (selectedTabChange)="onTabClick($event)"
+>
+  <nx-tab label="Home" routerLink="/" routerLinkActive="active"></nx-tab>
+  <nx-tab
+    label="Favorites"
+    routerLink="/favorites"
+    routerLinkActive="active"
+  ></nx-tab>
+</nx-tab-group>
 
-  <label for="year">Year:</label>
-  <input type="text" name="year" [(ngModel)]="searchYear" />
+<nx-page-search nxButtonLabel="Search" (nxButtonClick)="search()">
+  <div nxRow>
+    <div nxCol="12">
+      <nx-formfield>
+        <input nxInput placeholder="Search Movies" [(ngModel)]="searchTerm" />
 
-  <label for="type">Type:</label>
-  <select name="type" [(ngModel)]="searchType">
-    <option value="">All</option>
-    <option value="movie">Movie</option>
-    <option value="series">Series</option>
-    <option value="episode">Episode</option>
-  </select>
+        <span *ngIf="searchTerm" aria-hidden="true" (click)="searchTerm = ''">
+          <nx-icon name="close" size="s"></nx-icon>
+        </span>
+      </nx-formfield>
+    </div>
+  </div>
 
-  <button (click)="search()">Search</button>
-</div>
+  <div *ngIf="searchTerm">
+    <nx-formfield nxLabel="Movies Year" style="margin-top: 10px">
+      <input nxInput placeholder="Movies Year" [(ngModel)]="searchYear" />
 
-<app-movie-list *ngIf="searchMovies" [movies]="searchMovies"></app-movie-list>
+      <span *ngIf="searchYear" aria-hidden="true" (click)="searchYear = ''">
+        <nx-icon name="close" size="s"></nx-icon>
+      </span>
+    </nx-formfield>
+  </div>
+  <div *ngIf="searchTerm">
+    <nx-formfield nxLabel="Movies Type" style="margin-top: 10px">
+      <nx-dropdown [(ngModel)]="searchType">
+        <nx-dropdown-item nxValue="Movie"></nx-dropdown-item>
+        <nx-dropdown-item nxValue="Series"></nx-dropdown-item>
+        <nx-dropdown-item nxValue="Episode"></nx-dropdown-item>
+      </nx-dropdown>
+    </nx-formfield>
+  </div>
+</nx-page-search>
+
+<app-movie-list *ngIf="searchMovies" [movies]="searchMovies" [currentIndex]="0">
+</app-movie-list>
+
+<router-outlet></router-outlet>

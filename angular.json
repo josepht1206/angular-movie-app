@@ -25,6 +25,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@allianz/ngx-ndbx/css/ndbx-base.css",
+              "node_modules/@allianz/ngx-ndbx/css/themes/ndbx.css",
               "src/styles.css"
             ],
             "scripts": []

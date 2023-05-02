@@ -1,8 +1,18 @@
-<ul>
-  <li *ngFor="let movie of favoriteMovies">
-    <h3>{{ movie.title }}</h3>
-    <p>{{ movie.description }}</p>
-    <button (click)="deleteFavoriteMovie(movie)">Delete</button>
-    <button (click)="editFavoriteMovie(movie)">Edit</button>
-  </li>
-</ul>
+<nx-tab-group
+  [(selectedIndex)]="currentIndex"
+  (selectedTabChange)="onTabClick($event)"
+>
+  <nx-tab label="Home" routerLink="/" routerLinkActive="active"></nx-tab>
+  <nx-tab
+    label="Favorites"
+    routerLink="/favorites"
+    routerLinkActive="active"
+  ></nx-tab>
+</nx-tab-group>
+
+<app-movie-list
+  *ngIf="favoriteMovies"
+  [movies]="favoriteMovies"
+  [currentIndex]="1"
+>
+</app-movie-list>

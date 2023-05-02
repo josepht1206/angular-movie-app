@@ -1,0 +1,15 @@
+
+.card {
+  min-height: 500px;
+  min-width: 400px;
+  max-height: 500px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.image{
+  min-height: 300px;
+  min-width: 340px;
+  max-height: 300px;
+  max-width: 340px;
+}

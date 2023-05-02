@@ -1,9 +1,45 @@
-<ul>
-  <li *ngFor="let movie of movies">
-    <h3>{{ movie.Title }}</h3>
-    <p>Year: {{ movie.Year }}</p>
-    <p>Type: {{ movie.Type }}</p>
-    <p>IMDB ID: {{ movie.imdbID }}</p>
-    <button (click)="addFavoriteMovie(movie)">Add to Favorites</button>
-  </li>
-</ul>
+<div
+  *ngFor="let movie of movies"
+  class="card"
+  style="margin: 0 auto; margin-top: 20px"
+>
+  <nx-card highlight class="card">
+    <div nxHighlightHeader>{{ movie.Title }}</div>
+    <nx-card-header>
+      <h3 nxHeadline="subsection-small" class="nx-margin-bottom-2m">
+        {{ movie.Year }}
+      </h3>
+    </nx-card-header>
+    <p nxHeadline="subsection-xsmall" class="nx-margin-bottom-m">
+      {{ movie.Type }}
+    </p>
+    <p nxHeadline="subsection-xsmall" class="nx-margin-bottom-m">
+      {{ movie.Description }}
+    </p>
+    <img [src]="movie.Poster" class="image" />
+    <button
+      *ngIf="currentIndex === 0"
+      nxButton="primary small"
+      (click)="addFavoriteMovie(movie)"
+      style="margin-top: 5px"
+    >
+      Add to Favorites
+    </button>
+    <button
+      *ngIf="currentIndex === 1"
+      nxButton="primary small"
+      (click)="deleteFavoriteMovie(movie)"
+      style="margin-top: 5px; margin-right: 5px"
+    >
+      Delete
+    </button>
+    <button
+      *ngIf="currentIndex === 1"
+      nxButton="primary small"
+      (click)="editFavoriteMovie(movie)"
+      style="margin-top: 5px; margin-left: 5px"
+    >
+      Edit
+    </button>
+  </nx-card>
+</div>

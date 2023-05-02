@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FavoriteMoviesService } from '../favorite.service';
+import { NxTabChangeEvent } from '@aposin/ng-aquila/tabs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-favorite-movies',
@@ -7,26 +9,19 @@ import { FavoriteMoviesService } from '../favorite.service';
   styleUrls: ['./favorite-movies.component.css'],
 })
 export class FavoriteMoviesComponent implements OnInit {
+  currentIndex = 1;
   favoriteMovies: any[] = [];
 
-  constructor(private favoriteMoviesService: FavoriteMoviesService) {}
+  constructor(
+    private favoriteMoviesService: FavoriteMoviesService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.favoriteMovies = this.favoriteMoviesService.getFavoriteMovies();
   }
 
-  deleteFavoriteMovie(movie: any) {
-    this.favoriteMoviesService.deleteFavoriteMovie(movie);
-    this.favoriteMovies = this.favoriteMoviesService.getFavoriteMovies();
-  }
-
-  editFavoriteMovie(movie: any) {
-    let description = prompt(
-      'Enter a new description for this movie:',
-      movie.description
-    );
-    if (description) {
-      movie.description = description;
-    }
+  onTabClick(event: NxTabChangeEvent) {
+    this.router.navigate(['/']);
   }
 }

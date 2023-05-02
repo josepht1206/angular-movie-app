@@ -8,15 +8,33 @@ import { FavoriteMoviesService } from '../favorite.service';
 })
 export class MovieListComponent implements OnInit {
   @Input() movies: any[] = [];
+  @Input() currentIndex: any;
 
   constructor(private favoriteMoviesService: FavoriteMoviesService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('currentIndex', this.currentIndex);
+  }
 
   addFavoriteMovie(movie: any) {
     let description = prompt('Enter a description for this movie:');
     if (description) {
       this.favoriteMoviesService.addFavoriteMovie(movie, description);
+    }
+  }
+
+  deleteFavoriteMovie(movie: any) {
+    this.favoriteMoviesService.deleteFavoriteMovie(movie);
+    // this.favoriteMovies = this.favoriteMoviesService.getFavoriteMovies();
+  }
+
+  editFavoriteMovie(movie: any) {
+    let description = prompt(
+      'Enter a new description for this movie:',
+      movie.description
+    );
+    if (description) {
+      movie.Description = description;
     }
   }
 }

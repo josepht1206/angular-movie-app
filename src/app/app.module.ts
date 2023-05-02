@@ -16,7 +16,7 @@ import { NxTabsModule } from '@aposin/ng-aquila/tabs';
 
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { MovieListComponent } from './movie-list/movie-list.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { FavoriteMoviesComponent } from './favorite-movies/favorite-movies.component';
 import { RouterModule, Routes } from '@angular/router';
 

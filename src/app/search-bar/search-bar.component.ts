@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { OmdbService } from '../omdb.service';
+import { OmdbService } from '../services/omdb/omdb.service';
 import { NxTabChangeEvent } from '@aposin/ng-aquila/tabs';
 import { Router } from '@angular/router';
 

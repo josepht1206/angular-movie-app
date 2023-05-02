@@ -20,7 +20,7 @@ export class FavoriteMoviesService {
       Type: movie.Type,
       Year: movie.Year,
       imdbID: movie.imdbID,
-      Description: movie.Description,
+      Description: description,
     };
     console.log('added movie', newMovie);
     this.favoriteMovies.push(newMovie);

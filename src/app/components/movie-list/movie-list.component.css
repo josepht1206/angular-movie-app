@@ -1,8 +1,8 @@
 
 .card {
-  min-height: 500px;
+  min-height: 520px;
   min-width: 400px;
-  max-height: 500px;
+  max-height: 520px;
   max-width: 400px;
   text-align: center;
 }

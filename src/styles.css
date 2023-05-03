@@ -2,7 +2,6 @@
 /* .nx-pagesearch{
   width: 1000px;
 } */
+@import "@angular/cdk/overlay-prebuilt.css";
+@import "@aposin/ng-aquila/css/utilities.css";
 
-.cdk-overlay-pane{
-  max-width: 10px;
-}

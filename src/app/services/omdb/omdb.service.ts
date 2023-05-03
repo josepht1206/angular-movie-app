@@ -10,7 +10,7 @@ export class OmdbService {
 
   constructor(private http: HttpClient) {}
 
-  searchMovies(searchTerm: string, year: string, type: string) {
+  searchMovies(searchTerm: any, year: any, type: any) {
     const url = `${this.apiUrl}?apikey=${this.apiKey}&s=${searchTerm}&y=${year}&type=${type}`;
     return this.http.get(url);
   }

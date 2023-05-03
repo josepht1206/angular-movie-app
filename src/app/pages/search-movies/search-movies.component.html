@@ -1,36 +1,47 @@
 <app-nav-bar [currentIndex]="0"></app-nav-bar>
 
 <nx-page-search nxButtonLabel="Search" (nxButtonClick)="search()">
-  <div nxRow>
-    <div nxCol="12">
-      <nx-formfield>
-        <input nxInput placeholder="Search Movies" [(ngModel)]="searchTerm" />
+  <form [formGroup]="form">
+    <div nxRow>
+      <div nxCol="12">
+        <nx-formfield>
+          <input
+            nxInput
+            placeholder="Search Movies"
+            #searchTerm
+            type="text"
+            formControlName="searchTerm"
+          />
+        </nx-formfield>
+      </div>
+    </div>
 
-        <span *ngIf="searchTerm" aria-hidden="false" (click)="searchTerm = ''">
-          <nx-icon name="close" size="s"></nx-icon>
-        </span>
+    <div *ngIf="searchTerm">
+      <nx-formfield nxLabel="Movies Year" style="margin-top: 10px">
+        <input
+          nxInput
+          placeholder="Movies Year"
+          #searchYear
+          type="text"
+          formControlName="searchYear"
+        />
       </nx-formfield>
     </div>
-  </div>
-
-  <div *ngIf="searchTerm">
-    <nx-formfield nxLabel="Movies Year" style="margin-top: 10px">
-      <input nxInput placeholder="Movies Year" [(ngModel)]="searchYear" />
-
-      <span *ngIf="searchYear" aria-hidden="false" (click)="searchYear = ''">
-        <nx-icon name="close" size="s"></nx-icon>
-      </span>
-    </nx-formfield>
-  </div>
-  <div *ngIf="searchTerm">
-    <nx-formfield nxLabel="Movies Type" style="margin-top: 10px">
-      <nx-dropdown [(ngModel)]="searchType">
-        <nx-dropdown-item nxValue="Movie"></nx-dropdown-item>
-        <nx-dropdown-item nxValue="Series"></nx-dropdown-item>
-        <nx-dropdown-item nxValue="Episode"></nx-dropdown-item>
-      </nx-dropdown>
-    </nx-formfield>
-  </div>
+    <div *ngIf="searchTerm">
+      <nx-formfield nxLabel="Movies Type" style="margin-top: 10px">
+        <nx-dropdown formControlName="searchType" #searchType>
+          <nx-dropdown-item>CLEAR VALUE</nx-dropdown-item>
+          <nx-dropdown-item nxValue="Movie"></nx-dropdown-item>
+          <nx-dropdown-item nxValue="Series"></nx-dropdown-item>
+          <nx-dropdown-item nxValue="Episode"></nx-dropdown-item>
+        </nx-dropdown>
+        <nx-error nxFormfieldError> Please select a value </nx-error>
+        <nx-message nxContext="info" nxFormfieldNote>
+          This field is required
+        </nx-message>
+      </nx-formfield>
+    </div>
+  </form>
 </nx-page-search>
 
 <app-movie-list *ngIf="searchMovies" [movies]="searchMovies" [currentIndex]="0">

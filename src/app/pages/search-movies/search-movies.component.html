@@ -1,9 +1,13 @@
 <app-nav-bar [currentIndex]="0"></app-nav-bar>
 
-<nx-page-search nxButtonLabel="Search" (nxButtonClick)="search()">
+<nx-page-search
+  nxButtonLabel="Search"
+  (nxButtonClick)="search()"
+  class="nx-page-search"
+>
   <form [formGroup]="form">
     <div nxRow>
-      <div nxCol="12">
+      <div>
         <nx-formfield>
           <input
             nxInput

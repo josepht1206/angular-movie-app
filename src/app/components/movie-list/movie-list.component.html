@@ -43,35 +43,6 @@
       >
         Edit
       </button>
-      <ng-template #template>
-        <div class="u-text-center">
-          <h3 nxHeadline="subsection-medium" class="nx-modal-margin-bottom">
-            Enter a description for the movie.
-          </h3>
-
-          <nx-formfield nxLabel="Movie Description">
-            <input nxInput [(ngModel)]="editDescription" />
-          </nx-formfield>
-          <div>
-            <button
-              nxButton="primary small"
-              type="button"
-              style="margin-right: 5px"
-              (click)="editFavoriteMovie(movie, editDescription)"
-            >
-              save
-            </button>
-            <button
-              nxButton="primary small"
-              type="button"
-              style="margin-left: 5px"
-              (click)="closeTemplateDialog()"
-            >
-              cancel
-            </button>
-          </div>
-        </div>
-      </ng-template>
     </div>
   </nx-card>
 </div>
@@ -90,7 +61,7 @@
         nxButton="primary small"
         type="button"
         style="margin-right: 5px"
-        (click)="addFavoriteMovie(addDescription)"
+        (click)="addEditFavoriteMovie(addDescription)"
       >
         save
       </button>

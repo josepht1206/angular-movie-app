@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+/* .nx-pagesearch{
+  width: 1000px;
+} */
+
+.cdk-overlay-pane{
+  max-width: 10px;
+}

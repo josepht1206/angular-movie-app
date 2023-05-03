@@ -49,11 +49,19 @@ export class MovieListComponent implements OnInit {
     this.templateDialogRef?.close();
   }
 
-  addFavoriteMovie(addDescription: string) {
-    this.favoriteMoviesService.addFavoriteMovie(
-      this.selectedMovies,
-      addDescription
-    );
+  addEditFavoriteMovie(addDescription: string) {
+    if (this.currentIndex === 0) {
+      this.favoriteMoviesService.addFavoriteMovie(
+        this.selectedMovies,
+        addDescription
+      );
+    } else {
+      this.selectedMovies.Description = addDescription;
+      this.closeTemplateDialog();
+      console.log('edited movie', this.selectedMovies);
+      this.currentIndex = 1;
+    }
+
     this.showAddfavoriteModal = false;
     // this.closeTemplateDialog();
   }
@@ -64,9 +72,9 @@ export class MovieListComponent implements OnInit {
     // this.favoriteMovies = this.favoriteMoviesService.getFavoriteMovies();
   }
 
-  editFavoriteMovie(movie: any, editDescription: string) {
-    movie.Description = editDescription;
-    this.closeTemplateDialog();
-    console.log('edited movie', movie);
-  }
+  // editFavoriteMovie(movie: any, editDescription: string) {
+  //   movie.Description = editDescription;
+  //   this.closeTemplateDialog();
+  //   console.log('edited movie', movie);
+  // }
 }

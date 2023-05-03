@@ -39,21 +39,14 @@ export class SearchMoviesComponent implements OnInit {
         this.form.value.searchType
       )
       .subscribe(
-        (data) => {
+        (data: any) => {
           console.log('searched results', data);
           // TODO: Display movie results
+          this.searchMovies = data.Search;
         },
         (error) => {
           console.log(error);
         }
       );
-
-    this.http
-      .get(
-        `http://www.omdbapi.com/?apikey=${this.omdbService.apiKey}&s=${this.form.value.searchTerm}&y=${this.form.value.searchYear}&type=${this.form.value.searchType}`
-      )
-      .subscribe((response: any) => {
-        this.searchMovies = response.Search;
-      });
   }
 }

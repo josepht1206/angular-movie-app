@@ -20,6 +20,9 @@ export class MovieListComponent implements OnInit {
   @Input() movies: any[] = [];
   @Input() currentIndex: any;
 
+  selectedMovies: any;
+  showAddfavoriteModal: boolean = false;
+
   @ViewChild('template') templateRef!: TemplateRef<any>;
 
   templateDialogRef?: NxModalRef<any>;
@@ -34,20 +37,25 @@ export class MovieListComponent implements OnInit {
     console.log('currentIndex', this.currentIndex);
   }
 
-  openFromTemplate(): void {
-    this.templateDialogRef = this.dialogService.open(this.templateRef, {
-      ariaLabel: 'Dialog with direction',
-      direction: this.dir.value,
-    });
+  openFromTemplate(movie: any): void {
+    // this.templateDialogRef = this.dialogService.open(this.templateRef, {
+    //   ariaLabel: 'Dialog with direction',
+    //   direction: this.dir.value,
+    // });
+    this.selectedMovies = movie;
+    this.showAddfavoriteModal = true;
   }
   closeTemplateDialog() {
     this.templateDialogRef?.close();
   }
 
-  addFavoriteMovie(movie: any, addDescription: string) {
-    this.favoriteMoviesService.addFavoriteMovie(movie, addDescription);
-
-    this.closeTemplateDialog();
+  addFavoriteMovie(addDescription: string) {
+    this.favoriteMoviesService.addFavoriteMovie(
+      this.selectedMovies,
+      addDescription
+    );
+    this.showAddfavoriteModal = false;
+    // this.closeTemplateDialog();
   }
 
   deleteFavoriteMovie(movie: any) {

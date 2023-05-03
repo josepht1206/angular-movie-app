@@ -14,6 +14,7 @@ export class FavoriteMoviesService {
   }
 
   addFavoriteMovie(movie: any, description: string) {
+    console.log(movie);
     let newMovie = {
       Poster: movie.Poster,
       Title: movie.Title,

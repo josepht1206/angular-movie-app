@@ -20,42 +20,12 @@
 
     <div *ngIf="currentIndex === 0">
       <button
-        (click)="openFromTemplate()"
+        (click)="openFromTemplate(movie)"
         nxButton="primary small"
         type="button"
       >
         Add to Favorites
       </button>
-
-      <ng-template #template>
-        <div class="u-text-center">
-          <h3 nxHeadline="subsection-medium" class="nx-modal-margin-bottom">
-            Enter a description for the movie.
-          </h3>
-
-          <nx-formfield nxLabel="Movie Description">
-            <input nxInput [(ngModel)]="addDescription" />
-          </nx-formfield>
-          <div>
-            <button
-              nxButton="primary small"
-              type="button"
-              style="margin-right: 5px"
-              (click)="addFavoriteMovie(movie, addDescription)"
-            >
-              save
-            </button>
-            <button
-              nxButton="primary small"
-              type="button"
-              style="margin-left: 5px"
-              (click)="closeTemplateDialog()"
-            >
-              cancel
-            </button>
-          </div>
-        </div>
-      </ng-template>
     </div>
 
     <div *ngIf="currentIndex === 1">
@@ -67,7 +37,7 @@
         Delete
       </button>
       <button
-        (click)="openFromTemplate()"
+        (click)="openFromTemplate(movie)"
         nxButton="primary small"
         type="button"
       >
@@ -105,3 +75,43 @@
     </div>
   </nx-card>
 </div>
+
+<ng-template #addFavoriteModal>
+  <div class="u-text-center">
+    <h3 nxHeadline="subsection-medium" class="nx-modal-margin-bottom">
+      Enter a description for the movie.
+    </h3>
+
+    <nx-formfield nxLabel="Movie Description">
+      <input nxInput [(ngModel)]="addDescription" />
+    </nx-formfield>
+    <div>
+      <button
+        nxButton="primary small"
+        type="button"
+        style="margin-right: 5px"
+        (click)="addFavoriteMovie(addDescription)"
+      >
+        save
+      </button>
+      <button
+        nxButton="primary small"
+        type="button"
+        style="margin-left: 5px"
+        (click)="closeTemplateDialog()"
+      >
+        cancel
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<nx-modal
+  (nxClose)="showAddfavoriteModal = false"
+  [nxBody]="addFavoriteModal"
+  [nxShowCloseIcon]="false"
+  [nxHideOnEsc]="false"
+  [nxHideOnClickOutside]="false"
+  *ngIf="showAddfavoriteModal"
+>
+</nx-modal>

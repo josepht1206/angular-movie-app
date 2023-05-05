@@ -1,4 +1,4 @@
-<nx-tab-group
+<!-- <nx-tab-group
   [(selectedIndex)]="currentIndex"
   (selectedTabChange)="onTabClick($event)"
 >
@@ -8,4 +8,30 @@
     routerLink="/favorites"
     routerLinkActive="active"
   ></nx-tab>
-</nx-tab-group>
+</nx-tab-group> -->
+
+<nx-tab-nav-bar>
+  <a
+    nxTabLink
+    *ngFor="let link of links"
+    (click)="setActiveLink(link)"
+    [active]="currentLink.label === link.label"
+    [disabled]="link.disabled"
+    [routerLink]="link.path"
+  >
+    {{ link.label }}
+  </a>
+</nx-tab-nav-bar>
+
+<!-- <nx-tab-nav-bar>
+    <a
+        nxTabLink
+        *ngFor="let link of links"
+        (click)="setActiveLink(link)"
+        [active]="currentLink.label === link.label"
+        [disabled]="link.disabled"
+        [routerLink]="link.path"
+    >
+        {{link.label}}
+    </a>
+</nx-tab-nav-bar> -->

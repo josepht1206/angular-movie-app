@@ -17,4 +17,24 @@ export class NavBarComponent {
       this.router.navigate(['/favorites']);
     } else this.router.navigate(['/']);
   }
+
+  links = [
+    {
+      label: 'Home',
+      path: '',
+      disabled: false,
+    },
+    {
+      label: 'Favorite',
+      path: '/favorites',
+      disabled: false,
+    },
+  ];
+
+  currentLink = this.links[0];
+
+  setActiveLink(link: any) {
+    console.log(link);
+    return (this.currentLink = link);
+  }
 }

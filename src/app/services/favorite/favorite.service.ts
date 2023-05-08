@@ -28,7 +28,7 @@ export class FavoriteMoviesService {
   }
 
   getFavoriteMovies() {
-    console.log('favorited movies : ', this.favoriteMovies);
+    console.log('Retrieved Favorited Movies', this.favoriteMovies);
     return this.favoriteMovies;
   }
 

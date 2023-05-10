@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NxTabChangeEvent } from '@aposin/ng-aquila/tabs';
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,17 +8,6 @@ import { NxTabChangeEvent } from '@aposin/ng-aquila/tabs';
 export class NavBarComponent implements OnInit {
   @Input() currentIndex: any;
   currentLink: any;
-
-  constructor(private router: Router) {}
-
-  ngOnInit() {
-    if (this.currentIndex === 0) {
-      this.currentLink = this.links[0];
-    } else {
-      this.currentLink = this.links[1];
-    }
-    console.log('Current Page : ', this.currentLink.label);
-  }
 
   links = [
     {
@@ -34,6 +21,17 @@ export class NavBarComponent implements OnInit {
       disabled: false,
     },
   ];
+
+  constructor() {}
+
+  ngOnInit() {
+    if (this.currentIndex === 0) {
+      this.currentLink = this.links[0];
+    } else {
+      this.currentLink = this.links[1];
+    }
+    console.log('Current Page : ', this.currentLink.label);
+  }
 
   setActiveLink(link: any) {
     if (!link.disabled) {

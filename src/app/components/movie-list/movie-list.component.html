@@ -4,18 +4,10 @@
   style="margin: 0 auto; margin-top: 20px"
 >
   <nx-card highlight class="card">
-    <div nxHighlightHeader>{{ movie.Title }}</div>
-    <nx-card-header>
-      <h3>
-        {{ movie.Year }}
-      </h3>
-    </nx-card-header>
-    <p>
-      {{ movie.Type }}
-    </p>
-    <p>
-      {{ movie.Description }}
-    </p>
+    <div nxHighlightHeader>Title :<br />{{ movie.Title }}</div>
+    <nx-card-header> Released Year : {{ movie.Year }} </nx-card-header>
+    <p>Type : {{ movie.Type }}</p>
+    <p>Description : {{ movie.Description }}</p>
     <img [src]="movie.Poster" class="image" style="margin-bottom: 5px" />
 
     <div *ngIf="currentIndex === 0">
@@ -70,7 +62,7 @@
         nxButton="primary small"
         type="button"
         style="margin-left: 5px"
-        (click)="closeTemplateDialog()"
+        (click)="closeModal()"
       >
         cancel
       </button>

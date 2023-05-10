@@ -1,6 +1,11 @@
 <app-nav-bar [currentIndex]="0"></app-nav-bar>
 
-<nx-page-search nxButtonLabel="Search" (nxButtonClick)="search()">
+<nx-page-search
+  nxButtonLayout="12,12,12,4"
+  nxContentLayout="12,12,12,8"
+  nxButtonLabel="Search"
+  (nxButtonClick)="search()"
+>
   <form [formGroup]="form">
     <div nxRow>
       <div>
@@ -16,7 +21,7 @@
       </div>
     </div>
 
-    <div *ngIf="searchTerm">
+    <div nxRow *ngIf="searchTerm">
       <nx-formfield nxLabel="Movies Year" style="margin-top: 10px">
         <input
           nxInput
@@ -27,7 +32,7 @@
         />
       </nx-formfield>
     </div>
-    <div *ngIf="searchTerm">
+    <div nxRow *ngIf="searchTerm">
       <nx-formfield nxLabel="Movies Type" style="margin-top: 10px">
         <nx-dropdown formControlName="searchType" #searchType>
           <nx-dropdown-item>CLEAR VALUE</nx-dropdown-item>

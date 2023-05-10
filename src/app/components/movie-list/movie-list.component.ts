@@ -12,7 +12,7 @@ import { Directionality } from '@angular/cdk/bidi';
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.css'],
+  styleUrls: ['./movie-list.component.scss'],
 })
 export class MovieListComponent implements OnInit {
   @Input() addDescription: string = '';

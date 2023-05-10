@@ -6,7 +6,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'search-movies',
   templateUrl: './search-movies.component.html',
-  styleUrls: ['./search-movies.component.css'],
+  styleUrls: ['./search-movies.component.scss'],
 })
 export class SearchMoviesComponent implements OnInit {
   searchTerm = '';

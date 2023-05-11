@@ -25,9 +25,7 @@ export class MovieListComponent implements OnInit {
 
   constructor(private favoriteMoviesService: FavoriteMoviesService) {}
 
-  ngOnInit() {
-    console.log('currentIndex', this.currentIndex);
-  }
+  ngOnInit() {}
 
   openFromTemplate(movie: any): void {
     this.selectedMovies = movie;
@@ -38,7 +36,7 @@ export class MovieListComponent implements OnInit {
   }
 
   addEditFavoriteMovie(addDescription: string) {
-    if (this.currentIndex === 0) {
+    if (this.currentIndex === 'Home') {
       this.favoriteMoviesService.addFavoriteMovie(
         this.selectedMovies,
         addDescription
@@ -50,7 +48,7 @@ export class MovieListComponent implements OnInit {
       );
       this.closeModal();
       console.log('edited movie', this.selectedMovies);
-      this.currentIndex = 1;
+      this.currentIndex = 'Favorites';
     }
     this.showAddfavoriteModal = false;
   }

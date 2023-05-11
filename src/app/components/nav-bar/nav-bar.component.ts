@@ -25,7 +25,7 @@ export class NavBarComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    if (this.currentIndex === 0) {
+    if (this.currentIndex === 'Home') {
       this.currentLink = this.links[0];
     } else {
       this.currentLink = this.links[1];

@@ -13,7 +13,7 @@
     <p *ngIf="!movie.Description" #showNoDesc>You did not add description</p>
     <img [src]="movie.Poster" class="image" style="margin-bottom: 5px" />
 
-    <div *ngIf="currentIndex === 0">
+    <div *ngIf="currentIndex === 'Home'">
       <button
         (click)="openFromTemplate(movie)"
         nxButton="primary small"
@@ -23,7 +23,7 @@
       </button>
     </div>
 
-    <div *ngIf="currentIndex === 1">
+    <div *ngIf="currentIndex === 'Favorites'">
       <button
         nxButton="primary small"
         (click)="deleteFavoriteMovie(movie)"

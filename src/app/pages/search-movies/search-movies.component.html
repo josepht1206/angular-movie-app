@@ -1,4 +1,4 @@
-<app-nav-bar [currentIndex]="0"></app-nav-bar>
+<app-nav-bar [currentIndex]="'Home'"></app-nav-bar>
 
 <nx-page-search
   nxButtonLayout="12,12,12,4"
@@ -49,5 +49,9 @@
   </form>
 </nx-page-search>
 
-<app-movie-list *ngIf="searchMovies" [movies]="searchMovies" [currentIndex]="0">
+<app-movie-list
+  *ngIf="searchMovies"
+  [movies]="searchMovies"
+  [currentIndex]="'Home'"
+>
 </app-movie-list>

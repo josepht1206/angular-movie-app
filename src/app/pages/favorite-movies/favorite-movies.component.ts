@@ -13,5 +13,6 @@ export class FavoriteMoviesComponent implements OnInit {
 
   ngOnInit() {
     this.favoriteMovies = this.favoriteMoviesService.getFavoriteMovies();
+    console.log('Retrieved Favorited Movies', this.favoriteMovies);
   }
 }

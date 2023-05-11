@@ -7,7 +7,10 @@
     <div nxHighlightHeader>Title :<br />{{ movie.Title }}</div>
     <nx-card-header> Released Year : {{ movie.Year }} </nx-card-header>
     <p>Type : {{ movie.Type }}</p>
-    <p>Description : {{ movie.Description }}</p>
+    <p *ngIf="movie.Description" else="showNoDesc">
+      Description : {{ movie.Description }}
+    </p>
+    <p *ngIf="!movie.Description" #showNoDesc>You did not add description</p>
     <img [src]="movie.Poster" class="image" style="margin-bottom: 5px" />
 
     <div *ngIf="currentIndex === 0">
@@ -33,8 +36,18 @@
         nxButton="primary small"
         type="button"
         style="margin-left: 5px"
+        *ngIf="movie.Description"
       >
-        Edit
+        Edit Description
+      </button>
+      <button
+        (click)="openFromTemplate(movie)"
+        nxButton="primary small"
+        type="button"
+        style="margin-left: 5px"
+        *ngIf="!movie.Description"
+      >
+        Add Description
       </button>
     </div>
   </nx-card>

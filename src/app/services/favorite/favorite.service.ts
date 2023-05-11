@@ -44,4 +44,17 @@ export class FavoriteMoviesService {
       );
     }
   }
+
+  updateFavoriteMovie(movie: any, newDescription: string) {
+    let index = this.favoriteMovies.findIndex(
+      (favoriteMovie) => favoriteMovie.title === movie.title
+    );
+    if (index !== -1) {
+      this.favoriteMovies[index].Description = newDescription;
+      localStorage.setItem(
+        'favoriteMovies',
+        JSON.stringify(this.favoriteMovies)
+      );
+    }
+  }
 }

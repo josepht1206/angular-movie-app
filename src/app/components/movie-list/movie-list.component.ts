@@ -44,7 +44,10 @@ export class MovieListComponent implements OnInit {
         addDescription
       );
     } else {
-      this.selectedMovies.Description = addDescription;
+      this.favoriteMoviesService.updateFavoriteMovie(
+        this.selectedMovies,
+        addDescription
+      );
       this.closeModal();
       console.log('edited movie', this.selectedMovies);
       this.currentIndex = 1;

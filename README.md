@@ -9,6 +9,10 @@ https://git2.uberfusion.com/Developers/Mobile-Development/src/master/Upskilling%
 Website : http://www.omdbapi.com/
 API Call : http://www.omdbapi.com/?i=tt3896198&apikey=73e230e9
 
+## References Link
+Video : https://app.pluralsight.com/course-player?clipId=4e8b5f9f-8fba-4b68-b73f-231b9ceff21a
+Repo : https://github.com/jmcooper/angular-fundamentals-files
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

@@ -5,6 +5,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Assesment Title
 https://git2.uberfusion.com/Developers/Mobile-Development/src/master/Upskilling%20Assignment/assignment-movies-app.md
 
+## API 
+Website : http://www.omdbapi.com/
+API Call : http://www.omdbapi.com/?i=tt3896198&apikey=73e230e9
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
